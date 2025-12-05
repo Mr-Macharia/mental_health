@@ -110,7 +110,7 @@ const ClientChatPage = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={isRecording ? "Listening..." : "Type your message here..."}
-            className="flex-1 w-full px-4 py-2 bg-white rounded-full border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+            className="flex-1 w-full px-4 py-2 bg-white text-gray-900 rounded-full border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
           />
           <button
             type="submit"
