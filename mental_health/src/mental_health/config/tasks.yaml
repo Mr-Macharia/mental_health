@@ -1,0 +1,14 @@
+counseling_task:
+  description: >
+    Respond to the user's message: "{user_message}"
+    
+    Previous conversation context:
+    {conversation_history}
+    
+    Provide a supportive, empathetic response that validates their feelings.
+    CRITICAL: Your response MUST be exactly 30 words or fewer. Count each word carefully.
+    Be warm, understanding, and concise. Focus on emotional validation and gentle support.
+  expected_output: >
+    A brief, empathetic response of EXACTLY 30 words or fewer that addresses the user's emotional needs.
+    DO NOT EXCEED 30 WORDS. This is mandatory.
+  agent: mental_health_counselor
