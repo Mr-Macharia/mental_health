@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-api_key = os.getenv("DIGITAL_OCEAN_MODEL_ACCESS_KEY")
+api_key = os.getenv("MODEL_ACCESS_KEY")
 
 default_model=OpenAILike(
     id="gemma-4-31B-it", # openai-gpt-oss-20b

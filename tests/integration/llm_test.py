@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-api_key = os.getenv("DIGITAL_OCEAN_MODEL_ACCESS_KEY")
+api_key = os.getenv("MODEL_ACCESS_KEY")
 
 ai_model=OpenAILike(
     id="openai-gpt-oss-20b", # openai-gpt-oss-20b
