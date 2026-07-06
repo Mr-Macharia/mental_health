@@ -1,2 +1,4 @@
 agno
 python-dotenv
+fastapi
+uvicorn

@@ -1,3 +1,14 @@
+Metadata-Version: 2.4
+Name: alzira
+Version: 0.1.0
+Summary: AI-powered mental health support companion
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Requires-Dist: agno
+Requires-Dist: python-dotenv
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+
 # Mental Health Chatbot
 
 An AI-powered mental health support companion built with the [Agno](https://github.com/agno-agi/agno) framework. It features **Alzira**, an empathetic, Socratic-style therapist agent designed to provide a safe, reflective space for users to explore their thoughts and emotions.
@@ -35,7 +46,7 @@ This project is in active early development. What exists today is the core thera
 | Agent framework | [Agno](https://github.com/agno-agi/agno) |
 | Model | `gemma-4-31B-it` (OpenAI-compatible inference endpoint) |
 | Config | `python-dotenv` |
-| Build | setuptools |
+| Build | setuptools (`src/` layout) |
 
 ---
 
@@ -52,26 +63,30 @@ This project is in active early development. What exists today is the core thera
 ## Project Structure
 
 ```
-alzira/
-├── app/                        # FastAPI + AgentOS entry point
-│   ├── api/                    # API routes
-│   └── main.py                 # FastAPI application
-├── agent/                      # Multi-agent domain
-│   ├── alzira/                # Therapist agent (Alzira)
-│   ├── safety/                # Safety guardrails
-│   ├── tools/                 # Agent tools
-│   └── workflows/             # Agent workflows
-├── core/                       # Shared: LLM client, config
-├── prompts/                    # Extracted prompts & instructions
-├── logs/                       # Runtime logs
-├── evaluation/                 # Benchmarks & test cases
-├── tests/
-│   ├── integration/           # Integration tests
-│   ├── unit/                  # Unit tests
-│   └── safety/                # Safety tests
+mental_health/
+├── data/
+│   ├── evaluation/test_cases/   # (planned) evaluation scenarios
+│   ├── logs/                    # (planned) run logs
+│   └── resources/               # (planned) static resources
 ├── docs/
-├── scripts/
-└── pyproject.toml
+│   ├── ARCHITECTURE.md          # (planned) architecture overview
+│   └── SAFETY.md                # (planned) safety & crisis policy
+├── scripts/                     # (planned) helper scripts
+├── src/mental_health_chatbot/
+│   ├── agents/
+│   │   └── therapist.py         # Alzira therapist agent
+│   ├── core/
+│   │   └── llm.py               # LLM client / default model config
+│   └── prompts/
+│       └── instructions.py      # Therapist system prompt / persona
+├── tests/
+│   ├── integration/
+│   │   └── llm_test.py          # Model connection integration test
+│   ├── unit/                    # (planned) unit tests
+│   └── safety/                  # (planned) safety tests
+├── main.py                      # (placeholder — not yet wired to the agent)
+├── pyproject.toml
+└── README.md
 ```
 
 ---
@@ -125,10 +140,10 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 The therapist agent is the current entrypoint. Run it with:
 
 ```bash
-uv run python -m agent.alzira.therapist
+uv run python -m mental_health_chatbot.agents.therapist
 ```
 
-This sends a default message (`"Hello I am sad"`) to Alzira and streams the response to your terminal. To chat on your own input, edit the `print_response(...)` call in `agent/alzira/therapist.py`.
+This sends a default message (`"Hello I am sad"`) to Alzira and streams the response to your terminal. To chat on your own input, edit the `print_response(...)` call in `src/mental_health_chatbot/agents/therapist.py`.
 
 ---
 
@@ -151,8 +166,8 @@ uv run python tests/integration/llm_test.py
 | Variable | Description | Where |
 |----------|-------------|-------|
 | `MODEL_ACCESS_KEY` | Access key for the inference endpoint | `.env` |
-| Model id | `gemma-4-31B-it` | `core/llm.py` |
-| Endpoint base URL | OpenAI-compatible inference endpoint | `core/llm.py` |
+| Model id | `gemma-4-31B-it` | `src/mental_health_chatbot/core/llm.py` |
+| Endpoint base URL | OpenAI-compatible inference endpoint | `src/mental_health_chatbot/core/llm.py` |
 
 ---
 

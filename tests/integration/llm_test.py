@@ -1,7 +1,7 @@
 # import os
 from agno.agent import Agent
 # from agno.models.openai.like import OpenAILike
-from mental_health_chatbot.core.llm import default_model
+from core.llm import default_model
 from dotenv import load_dotenv
 
 load_dotenv()

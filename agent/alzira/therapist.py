@@ -1,6 +1,6 @@
 from agno.agent import Agent
-from mental_health_chatbot.core.llm import default_model
-from mental_health_chatbot.prompts.instructions import get_therapist_instructions
+from core.llm import default_model
+from prompts.instructions import get_therapist_instructions
 
 agent = Agent(
     name="General Therapist Agent",
