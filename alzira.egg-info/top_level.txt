@@ -1,9 +1,0 @@
-agent
-app
-core
-docs
-evaluation
-logs
-prompts
-scripts
-tests
