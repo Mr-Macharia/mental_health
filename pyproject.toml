@@ -4,8 +4,11 @@ version = "0.1.0"
 description = "AI-powered mental health support companion"
 requires-python = ">=3.13"
 dependencies = [
-    "agno",
+    "agno[os]",
     "python-dotenv",
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic",
 ]
 
 [project.scripts]

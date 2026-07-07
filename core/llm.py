@@ -1,8 +1,8 @@
 import os
 # from agno.models.openai.like import OpenAILike
 # from agno.models.deepseek import DeepSeek
-from agno.models.deepinfra import DeepInfra
-# from agno.models.fireworks import Fireworks
+# from agno.models.deepinfra import DeepInfra
+from agno.models.fireworks import Fireworks
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -16,13 +16,13 @@ api_key = os.getenv("MODEL_ACCESS_KEY")
 # )
 
 
-# default_model=Fireworks(
-#     id="accounts/fireworks/models/qwen3p7-plus"
-# )
-
-default_model=DeepInfra(
-    id="google/gemma-4-31B-it"
+default_model=Fireworks(
+    id="accounts/fireworks/models/qwen3p7-plus"
 )
+
+# default_model=DeepInfra(
+#     id="google/gemma-4-31B-it"
+# )
 
 
 # default_model=DeepSeek(

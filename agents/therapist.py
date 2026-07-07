@@ -9,3 +9,6 @@ therapist = Agent(
     instructions=get_therapist_instructions(),
     description="A compassionate AI therapist companion",
 )
+
+if __name__ == "__main__":
+    therapist.print_response("Hello, how can you assist?")
